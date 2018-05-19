@@ -31,3 +31,21 @@ describe('MyMath', () => {
     })
   })
 })
+
+describe('MyMath edge cases', () => {
+  describe('non-numeric input', () => {
+    it('rejects non-numeric input', () => {
+      const add = MyMath.add(1, 'a')
+      add.should.throw('Param is not a number!')
+
+      const subtract = MyMath.subtract(1, 'a')
+      subtract.should.throw('Param is not a number!')
+
+      const multiply = MyMath.multiply(1, 'a')
+      multiply.should.throw('Param is not a number!')
+      
+      const divide = MyMath.divide(1, 'a')
+      divide.should.throw('Param is not a number!')
+    })
+  })
+})
