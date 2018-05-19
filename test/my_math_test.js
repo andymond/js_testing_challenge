@@ -10,7 +10,7 @@ describe('MyMath', () => {
     });
 
     it('subtracts two numbers', () => {
-      const difference = MyMath.subtrat(20, 14);
+      const difference = MyMath.subtract(20, 14);
       difference.should.eq(6);
     })
   });
