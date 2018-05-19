@@ -104,5 +104,20 @@ describe('API', () => {
         response.body.length.should.eq(11)
       })
     })
+
+    it('returns transactions with correct attrs', () => {
+      return chai.request(process.env.ROOT)
+      .get('/recenttx/1')
+      .then((response) => {
+        response.should.have.status(200)
+        response.body.should.be.an('array')
+
+        let tx = response.body[0]
+        tx.should.include.keys('curIn', 'curOut', 'timestamp', 'amount', 'txid')
+        parseInt(tx.timestamp).should.be.a('number')
+        parseInt(tx.amount).should.be.a('number')
+        parseInt(tx.amound).should.be.a('number')
+      })
+    })
   })
 })
