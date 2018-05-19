@@ -41,5 +41,17 @@ describe('API', () => {
         throw error
       })
     })
+
+    it('returns 500 for random words', () => {
+      return chai.request(process.env.ROOT)
+      .get('/rate/pumpkins')
+      .then((response) => {
+        response.should.have.status(500)
+        response.body.should.be.an('object')
+
+        let message = response.body.message
+        message.should.eq("errorMessage is not defined")
+      })
+    })
   })
 })
