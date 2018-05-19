@@ -8,5 +8,10 @@ describe('MyMath', () => {
       const sum = MyMath.add(14, 15);
       sum.should.eq(29);
     });
+
+    it('subtracts two numbers', () => {
+      const difference = MyMath.subtrat(20, 14);
+      difference.should.eq(6);
+    })
   });
 });
