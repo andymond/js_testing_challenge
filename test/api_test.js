@@ -75,9 +75,9 @@ describe('API', () => {
   })
 
   describe('GET recent transactions', () => {
-    it('returns lis of 5 transactions', () => {
+    it('defaults to a list of 5 transactions', () => {
       return chai.request(process.env.ROOT)
-      .get('/recenttx/5')
+      .get('/recenttx')
       .then((response) => {
         response.should.have.status(200)
         response.body.should.be.an('array')
@@ -85,7 +85,17 @@ describe('API', () => {
       })
     })
 
-    it('returns lis of 11 transactions', () => {
+    it('returns list of 2 transactions', () => {
+      return chai.request(process.env.ROOT)
+      .get('/recenttx/2')
+      .then((response) => {
+        response.should.have.status(200)
+        response.body.should.be.an('array')
+        response.body.length.should.eq(2)
+      })
+    })
+
+    it('returns list of 11 transactions', () => {
       return chai.request(process.env.ROOT)
       .get('/recenttx/11')
       .then((response) => {
