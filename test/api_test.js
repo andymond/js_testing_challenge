@@ -73,4 +73,26 @@ describe('API', () => {
       })
     })
   })
+
+  describe('GET recent transactions', () => {
+    it('returns lis of 5 transactions', () => {
+      return chai.request(process.env.ROOT)
+      .get('/recenttx/5')
+      .then((response) => {
+        response.should.have.status(200)
+        response.body.should.be.an('array')
+        response.body.length.should.eq(5)
+      })
+    })
+
+    it('returns lis of 11 transactions', () => {
+      return chai.request(process.env.ROOT)
+      .get('/recenttx/11')
+      .then((response) => {
+        response.should.have.status(200)
+        response.body.should.be.an('array')
+        response.body.length.should.eq(11)
+      })
+    })
+  })
 })
