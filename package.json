@@ -1,0 +1,16 @@
+{
+  "name": "js_code_challenge",
+  "version": "1.0.0",
+  "description": "js testing challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/ --exit"
+  },
+  "author": "Andy Dymond",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.2.0"
+  }
+}
