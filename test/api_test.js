@@ -54,4 +54,23 @@ describe('API', () => {
       })
     })
   })
+
+  describe('GET get coins', () => {
+    it('returns list of supported currencies', () => {
+      return chai.request(process.env.ROOT)
+      .get('/getcoins')
+      .then((response) => {
+        response.should.have.status(200)
+        response.body.should.be.an('object')
+
+        let btc = response.body.BTC
+        btc.should.be.an('object')
+        btc.should.include.keys('name', 'symbol', 'image', 'imageSmall', 'status', 'minerFee')
+        parseInt(btc.minerFee).should.be.a('number')
+      })
+      .catch((error) => {
+        throw error
+      })
+    })
+  })
 })
