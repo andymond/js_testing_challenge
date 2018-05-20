@@ -9,3 +9,10 @@ test('navbar exists test', async t => {
   await t
     .expect(nav.exists).ok()
 })
+
+test('about link test', async t => {
+  const about = Selector('.nav > li > a').nth(0)
+
+  await t
+    .click(about)
+})
