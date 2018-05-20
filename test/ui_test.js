@@ -27,3 +27,12 @@ test('api link test', async t => {
     .click(Selector('.dropdown-menu > li > a').nth(0))
   await t.expect(getLocation()).contains('/api')
 })
+
+test('ticker-item test', async t => {
+  const firstItem = Selector('.ticker__item').nth(0)
+  const secondItem = Selector('.ticker__item').nth(1)
+
+  await t
+    .expect(firstItem.innerText).contains('BTC')
+    .expect(secondItem.innerText).contains('ETH')
+})
