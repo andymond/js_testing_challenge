@@ -4,7 +4,9 @@
   "description": "js testing challenge",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/ --exit"
+    "test": "mocha test/ --exit",
+    "test_ui": "testcafe chrome test_ui/",
+    "test_all": "mocha test/ --exit && testcafe chrome test_ui/"
   },
   "author": "Andy Dymond",
   "license": "ISC",
